@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract WalletSender {
+    function sendToWallet(address wallet1, address wallet2, uint amount) public payable {
+        require(msg.value == amount, "Incorrect amount sent");
+        wallet1.transfer(amount / 2);
+        wallet2.transfer(amount / 2);
+    }
+}
